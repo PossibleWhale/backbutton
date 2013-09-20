@@ -1,10 +1,10 @@
 /*
- * JS interface with the tapjoy+ads plugin;
- *
  * Public API:
  *
- *      ads.showAd()  - display a fullscreen ad (non-blocking)
+ *      backbutton.back() - invoke the android back functionality
  */
+
+import device;
 
 
 var BackButton = Class(function () {
@@ -32,4 +32,9 @@ var BackButton = Class(function () {
 
 });
 
-exports = new BackButton();
+
+if (device.isAndroid) {
+    exports = new BackButton();
+} else {
+    exports = undefined;
+}
